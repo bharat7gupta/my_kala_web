@@ -1,0 +1,43 @@
+{
+    "products": [
+        {
+            "id": "120",
+            "place": "Electronics",
+            "category": "Computers",
+            "type": "Software",
+            "attributes": {
+                "Software Type": "Anti-Virus and Security",
+                "Operating System": "Linux",
+                "Kind of Software": "Visualization",
+                "Functionality": "Network",
+                "More Functionality": "Personal Finance",
+                "Price": "100"
+            },
+            "code": null
+        }
+    ],
+    "attributes": {
+        "Functionality": {
+            "network": 1
+        },
+        "Price": {
+            "100": 1
+        },
+        "Kind of Software": {
+            "visualization": 1
+        },
+        "Software Type": {
+            "security": 1,
+            "and": 1,
+            "virus": 1,
+            "anti": 1
+        },
+        "More Functionality": {
+            "personal": 1,
+            "finance": 1
+        },
+        "Operating System": {
+            "linux": 1
+        }
+    }
+}

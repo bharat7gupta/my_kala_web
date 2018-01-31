@@ -1,0 +1,109 @@
+{
+    "products": [
+        {
+            "id": "120",
+            "place": "Electronics",
+            "category": "Computers",
+            "type": "Software",
+            "attributes": {
+                "Software Type": "Anti-Virus and Security",
+                "Operating System": "Linux",
+                "Kind of Software": "Visualization",
+                "Functionality": "Network",
+                "More Functionality": "Personal Finance",
+                "Price": "100"
+            },
+            "code": null
+        },
+        {
+            "id": "119",
+            "place": "Electronics",
+            "category": "Computers",
+            "type": "Software",
+            "attributes": {
+                "Software Type": "Games",
+                "Operating System": "Linux",
+                "Kind of Software": "Visualization",
+                "Functionality": "Personal Finance",
+                "More Functionality": "Personal Finance",
+                "Price": "100"
+            },
+            "code": null
+        },
+        {
+            "id": "117",
+            "place": "Electronics",
+            "category": "Computers",
+            "type": "Software",
+            "attributes": {
+                "Software Type": "Operating Systems",
+                "Operating System": "Windows",
+                "Kind of Software": "Project Management",
+                "Functionality": "Business Accounting",
+                "More Functionality": "Business Accounting",
+                "Price": "50"
+            },
+            "code": null
+        },
+        {
+            "id": "118",
+            "place": "Electronics",
+            "category": "Computers",
+            "type": "Software",
+            "attributes": {
+                "Software Type": "Business & Office",
+                "Operating System": "Mac",
+                "Kind of Software": "Notes",
+                "Functionality": "Inventory Mgmt",
+                "More Functionality": "Inventory Mgmt",
+                "Price": "100"
+            },
+            "code": null
+        }
+    ],
+    "attributes": {
+        "Functionality": {
+            "mgmt": 1,
+            "business": 1,
+            "personal": 1,
+            "accounting": 1,
+            "inventory": 1,
+            "finance": 1,
+            "network": 1
+        },
+        "Price": {
+            "50": 1,
+            "100": 3
+        },
+        "Kind of Software": {
+            "visualization": 2,
+            "notes": 1,
+            "management": 1,
+            "project": 1
+        },
+        "Software Type": {
+            "security": 1,
+            "business": 1,
+            "systems": 1,
+            "and": 1,
+            "games": 1,
+            "office": 1,
+            "operating": 1,
+            "virus": 1,
+            "anti": 1
+        },
+        "More Functionality": {
+            "mgmt": 1,
+            "business": 1,
+            "personal": 2,
+            "accounting": 1,
+            "inventory": 1,
+            "finance": 2
+        },
+        "Operating System": {
+            "linux": 2,
+            "windows": 1,
+            "mac": 1
+        }
+    }
+}

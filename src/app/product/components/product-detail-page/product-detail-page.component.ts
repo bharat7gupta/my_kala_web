@@ -26,10 +26,10 @@ export class ProductDetailPageComponent implements OnInit {
    * */
     this.actionsSubscription = this.route.params.subscribe(
       (params: any) => {
-        this.productId = params['id'];
-        this.productService
-          .getProduct(this.productId)
-          .subscribe(response => this.product$ = response);
+        // this.productId = params['id'];
+        // this.productService
+        //   .getProduct(this.productId)
+        //   .subscribe(response => this.product$ = response);
      }
     );
   };

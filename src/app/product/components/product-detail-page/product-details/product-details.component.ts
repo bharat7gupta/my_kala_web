@@ -29,13 +29,13 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.description = this.product.description;
-    this.images = this.product.master.images;
-    this.variantId = this.product.master.id;
-    this.customOptionTypesHash = this.variantParser
-      .getOptionsToDisplay(this.product.variants, this.product.option_types);
-    this.mainOptions = this.makeGlobalOptinTypesHash(this.customOptionTypesHash);
-    this.correspondingOptions = this.mainOptions;
+    // this.description = this.product.description;
+    // this.images = this.product.master.images;
+    // this.variantId = this.product.master.id;
+    // this.customOptionTypesHash = this.variantParser
+    //   .getOptionsToDisplay(this.product.variants, this.product.option_types);
+    // this.mainOptions = this.makeGlobalOptinTypesHash(this.customOptionTypesHash);
+    // this.correspondingOptions = this.mainOptions;
   }
 
   /**

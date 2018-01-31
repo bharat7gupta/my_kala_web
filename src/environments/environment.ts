@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  // API_ENDPOINT: 'http://localhost:3000/',
-  API_ENDPOINT: 'https://angularspree-new.herokuapp.com/',
-  AppName: 'AngularSpree'
+  // API_ENDPOINT: 'http://172.16.14.193:8080/',
+  API_ENDPOINT: 'https://api.myjson.com/bins/',
+  AppName: 'S & W - E Commerce'
 };

@@ -13,13 +13,13 @@ export const getSearchState = createSelector(
 
 /******************* Individual selectors ******************/
 function fetchSelectedFilters(state: SearchState) {
-    return state.selectedFilters.toJS();
+    return state.selectedFilters;
 };
 
-function fetchSelectedTaxonIds(state: SearchState) {
-    return state.selectedTaxonIds.toJS();
-}
+// function fetchSelectedTaxonIds(state: SearchState) {
+//     return state.selectedTaxonIds.toJS();
+// }
 
 /******************* Public Selector API's ******************/
 export const getFilters = createSelector(getSearchState, fetchSelectedFilters);
-export const getSelectedTaxonIds = createSelector(getSearchState, fetchSelectedTaxonIds);
+// export const getSelectedTaxonIds = createSelector(getSearchState, fetchSelectedTaxonIds);

@@ -1,4 +1,4 @@
-import { getSelectedTaxonIds } from './../../reducers/selectors';
+import { getFilters } from './../../reducers/selectors';
 import { Observable } from 'rxjs/Observable';
 import { CheckoutService } from './../../../core/services/checkout.service';
 import { CheckoutActions } from './../../../checkout/actions/checkout.actions';
@@ -15,7 +15,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   @Input() products;
-  @Input('taxonIds') selectedTaxonIds;
+  @Input('filters') selectedFilters;
   @Input() toggleLayout;
 
   constructor(
@@ -24,6 +24,29 @@ export class ProductListComponent implements OnInit {
     private checkoutActions: CheckoutActions) { }
 
   ngOnInit() { }
+
+  getFilteredProducts() {
+    let searchKeys = Object.keys(this.selectedFilters);
+    if(searchKeys.length===0) {
+      return this.products;
+    } else {
+      return this.products.filter((product) => {
+        let sKeys = Object.keys(this.selectedFilters);
+        let valid = true;
+
+        for(var i=0; i<sKeys.length; i++) {
+          let terms = this.selectedFilters[sKeys[i]];
+          if(terms.length===0) 
+            break;
+
+          let index = terms.indexOf( product.attributes[sKeys[i]].toString().toLowerCase() );
+          valid = valid && (index >= 0);
+        }
+
+        return valid;
+      });
+    }
+  }
 
   getProductImageUrl(url) {
     return environment.API_ENDPOINT + url;

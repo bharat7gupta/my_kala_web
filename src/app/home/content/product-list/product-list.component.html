@@ -1,22 +1,25 @@
 <div class="row-base" style="display: -webkit-flex">
   <section>
     <ul class="results-base">
-      <p *ngIf="products.length === 0">No Products found for this category</p>
-      <li *ngFor="let product of products | filter : selectedTaxonIds; trackBy: trackByFn" class="product-base" [style.margin]="getMargin()" itemscope
+      <p *ngIf="getFilteredProducts().length === 0">No Products found</p>
+      <!-- <li *ngFor="let product of products | filter : selectedTaxonIds; trackBy: trackByFn" class="product-base" [style.margin]="getMargin()" itemscope -->
+      <li *ngFor="let product of getFilteredProducts(); trackBy: trackByFn" class="product-base" [style.margin]="getMargin()" itemscope
         itemtype="https://schema.org/Product">
         <div class="product-thumbShim"></div>
-        <a itemprop="url" [routerLink]="['/product/', product.slug]">
+        <a itemprop="url" [routerLink]="['/product/', product.id]">
           <img itemprop="image"
             class="product-thumb"
             alt="{{product.name}}" 
-            [src]="getProductImageUrl(product.master.images[0]?.large_url)">
+            src="assets/product.jpg">
           <div class="product-productMetaInfo">
-            <div itemprop="name" class="product-brand">{{ product.name }}</div>
-            <h2 class="product-product">{{ product.description }}</h2>
+            <div itemprop="name" class="product-brand" *ngFor="let attr of product.attributeKeys">
+              {{ attr + ": " + product.attributes[attr]}}
+            </div>
+            <!-- <h2 class="product-product">{{ product.type }}</h2> -->
             <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="product-price">
               <span>
                 <!-- Discounted price -->
-                <span itemprop="price" class="product-discountedPrice">$ {{ product.price }}</span>
+                <b itemprop="price" class="product-discountedPrice">$ {{product.attributes["Price"] }}</b>
                 <!-- Original price -->
                 <!--<span class="product-strike"> react-text: 485 Rs.  /react-text  react-text: 486 1699 /react-text </span>-->
               </span>
@@ -25,7 +28,7 @@
             <!-- Product Size --><!--<div class="product-sizes">Sizes: S, M, L, XL, XXL</div>-->
           </div>
         </a>
-        <div class="product-sizeDisplayDiv">
+        <!-- <div class="product-sizeDisplayDiv">
           <div class="product-sizeDisplayHeader">
             <span>Select a size</span>
             <span class="myntraweb-sprite product-sizeDisplayRemoveMark sprites-remove"></span>
@@ -37,13 +40,13 @@
             <button class="product-sizeButton">XL</button>
             <button class="product-sizeButton">XXL</button>
           </div>
-        </div>
-        <div class="product-actions">
+        </div> -->
+        <!-- <div class="product-actions">
           <span class="product-actionsButton product-wishlist coming-soon">save</span>
           <span class="product-actionsButton product-addToBag">
             <span (click)="addToCart(product)">Add to bag</span>
           </span>
-        </div>
+        </div> -->
       </li>
     </ul>
   </section>

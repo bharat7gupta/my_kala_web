@@ -27,21 +27,15 @@ export class TaxonsComponent implements OnInit {
   ngOnInit() {
   }
 
-  isChecked(taxon) {
-    let result = false;
-    this.selectedFilters.forEach((filter) => {
-      if (filter.id === taxon.id) {
-        result = true;
-      }
-    });
-    return result;
+  isChecked(taxonomy, taxon) {
+    return this.selectedFilters[taxonomy] && this.selectedFilters[taxonomy].indexOf(taxon.name) >= 0;
   }
 
-  taxonSelected(taxon, checked) {
+  taxonSelected(taxonomy, taxon, checked) {
     if (checked) {
-      this.store.dispatch(this.actions.addFilter(taxon));
+      this.store.dispatch(this.actions.addFilter({taxonomy: taxonomy.name, taxon: taxon.name}));
     } else {
-      this.store.dispatch(this.actions.removeFilter(taxon));
+      this.store.dispatch(this.actions.removeFilter({taxonomy: taxonomy.name, taxon: taxon.name}));
     }
   }
 }

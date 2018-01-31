@@ -21,14 +21,13 @@ ul {
       vertical-align: top;
       overflow: hidden;
       display: inline-block;
-      transition: all 500ms;
       // margin: 0 30px 20px 0;
       a {
         text-decoration: none;
         background-color: transparent;
         color: #282c3f;
         .product-thumb {
-          height: 240px;
+          height: 200px;
           display: block;
           background-color: transparent;
           opacity: 1;
@@ -42,6 +41,7 @@ ul {
           height: 100%;
           padding: 0 5px;
           .product-brand, .product-product {
+            text-align: left;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;

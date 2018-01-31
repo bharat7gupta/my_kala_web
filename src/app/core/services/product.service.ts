@@ -45,8 +45,9 @@ export class ProductService {
    *
    * @memberof ProductService
    */
-  getProducts(): any {
-    return this.http.get(`/spree/api/v1/products`)
+  getProducts(): any { // https://api.myjson.com/bins/nvgsx
+    return this.http.get(`/bwftt`)
+    // return this.http.get(`/products/partial/search?category=cameras`)
     .map(res => res.json());
   }
 }

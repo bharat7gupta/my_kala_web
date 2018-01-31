@@ -17,6 +17,9 @@ export class Product {
   display_price: string;
   available_on: string;
   slug: string;
+
+  attributes: any;
+  attributeKeys: Array<string>;
   // meta_title: string;             // meta title is present in schema but it is not returned by the spree Api.
   meta_description: string;
   meta_keywords: string;
