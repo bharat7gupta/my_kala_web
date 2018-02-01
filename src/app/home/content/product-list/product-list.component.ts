@@ -39,7 +39,8 @@ export class ProductListComponent implements OnInit {
           if(terms.length===0) 
             break;
 
-          let index = terms.indexOf( product.attributes[sKeys[i]].toString().toLowerCase() );
+          let val = product.attributes[sKeys[i]] && product.attributes[sKeys[i]].toString();
+          let index = terms.indexOf(val);
           valid = valid && (index >= 0);
         }
 

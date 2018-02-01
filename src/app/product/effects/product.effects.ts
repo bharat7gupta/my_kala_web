@@ -21,16 +21,21 @@ export class ProductEffects {
   @Effect()
     GetAllProducts$: Observable<Action> = this.actions$
     .ofType(ProductActions.GET_ALL_PRODUCTS)
-    .switchMap((action: any) => this.productService.getProducts())
+    .switchMap((action: any) => this.productService.getProducts(action.productType))
     .mergeMap((data: any) => {
       let attributes = data.attributes;
+      let attrOrder = data.order;
       let taxonomies = [];
+      
       Object.keys(attributes)
         .forEach((key) => {
           let taxons = [];
           Object.keys(attributes[key]).forEach((tKey) => taxons.push({ name: tKey, count:  attributes[key][tKey]}));
           taxonomies.push({ name: key, taxons:  taxons });
         });
+
+      taxonomies.sort(function(t1, t2) { return attrOrder[t1.name] - attrOrder[t2.name]; });
+
       return [
         this.productActions.getAllTaxonomiesSuccess({taxonomies: taxonomies}),
         this.productActions.getAllProductsSuccess({products: data.products})

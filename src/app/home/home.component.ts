@@ -6,8 +6,9 @@ import { AppState } from './../interfaces';
 import { getProducts, getTaxonomies } from './../product/reducers/selectors';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Product } from '../core/models/product';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -27,19 +28,25 @@ import { Product } from '../core/models/product';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  productType: string;
+
   products$: Observable<any>;
   taxonomies$: Observable<any>;
   selectedFilters$: Observable<number[]>;
 
-  constructor(private store: Store<AppState>, private actions: ProductActions) {
+  constructor(private store: Store<AppState>, private actions: ProductActions, private route: ActivatedRoute) {
     // Get all products for the product list component
-    this.store.dispatch(this.actions.getAllProducts());
-    this.store.dispatch(this.actions.getAllTaxonomies());
+    // this.store.dispatch(this.actions.getAllTaxonomies());
     this.products$ = this.store.select(getProducts);
     this.taxonomies$ = this.store.select(getTaxonomies);
     this.selectedFilters$ = this.store.select(getFilters);
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.route.params.subscribe(params => {
+      this.productType = params['productType'];
+      this.store.dispatch(this.actions.getAllProducts(this.productType));     
+    });
+  }
 
 }

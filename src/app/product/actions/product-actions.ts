@@ -11,8 +11,8 @@ export class ProductActions {
     static GET_ALL_TAXONOMIES = 'GET_ALL_TAXONOMIES';
     static GET_ALL_TAXONOMIES_SUCCESS = 'GET_ALL_TAXONOMIES_SUCCESS';
 
-    getAllProducts() {
-        return { type: ProductActions.GET_ALL_PRODUCTS };
+    getAllProducts(productType: string) {
+        return { type: ProductActions.GET_ALL_PRODUCTS, productType };
     }
 
     getProductDetail(id: string) {

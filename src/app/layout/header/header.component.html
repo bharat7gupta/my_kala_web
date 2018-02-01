@@ -15,12 +15,25 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li *ngFor="let taxon of taxonList" class="">
-          <a (click)="selectTaxon(taxon)" href="javascript:void(0)" style="text-transform: capitalize;">{{taxon}}
+        <li *ngFor="let type of productTypes" [class.active]="selectedProductType === type">
+          <a (click)="selectProductType(type)" href="javascript:void(0)" style="text-transform: capitalize;">{{type}}
             <span class="sr-only">(current)</span>
           </a>
         </li>
       </ul>
+
+      <!-- <div style="position: relative;"> -->
+        <a href="javascript:void(0);" (click)="showRemProductTypes()" style="line-height: 50px; margin-left: 20px;">More Categories</a>      
+        <div *ngIf="showRemProdTypes" style="border: 1px solid #b0b0b0;">
+          <div style="position: absolute;">
+            <div *ngFor="let type of remProductTypes" 
+              style="height: 30px; border-bottom: 1px solid #b0b0b0; cursor: pointer;"
+              (click)="selectProductType(type)">
+              {{type}}
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
 
       <!-- <app-profile-dropdown [totalCartItems]="totalCartItems | async" [isAuthenticated]="isAuthenticated | async"></app-profile-dropdown> -->
 

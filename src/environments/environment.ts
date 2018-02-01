@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  // API_ENDPOINT: 'http://172.16.14.193:8080/',
-  API_ENDPOINT: 'https://api.myjson.com/bins/',
+  API_ENDPOINT: 'http://172.16.14.135:8900/',
+  // API_ENDPOINT: 'https://api.myjson.com/bins/',
   AppName: 'S & W - E Commerce'
 };

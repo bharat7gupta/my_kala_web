@@ -6,10 +6,10 @@
     <!-- <app-notification></app-notification> -->
 
     <main class="body container">
-      <router-outlet></router-outlet>
+       <router-outlet></router-outlet> 
     </main>
 
-    <app-checkout-footer *ngIf="currentUrl && isCheckoutRoute()"></app-checkout-footer>
-    <app-footer *ngIf="currentUrl && !isCheckoutRoute()"></app-footer>
+    <!-- <app-checkout-footer *ngIf="currentUrl && isCheckoutRoute()"></app-checkout-footer>
+    <app-footer *ngIf="currentUrl && !isCheckoutRoute()"></app-footer> -->
   </section>
 </div>
